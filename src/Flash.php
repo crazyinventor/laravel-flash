@@ -13,7 +13,12 @@ class Flash
 	 *
 	 * @var array
 	 */
-	private $valid_levels = [];
+	private $valid_levels = [
+		'info',
+		'warning',
+		'success',
+		'error',
+	];
 
 	/**
 	 * The actual messages
@@ -41,12 +46,10 @@ class Flash
 	 */
 	public function __call($name, $arguments)
 	{
-		if(array_key_exists($name, $this->valid_levels)) {
+		if(in_array($name, $this->valid_levels)) {
 			// store everything
 			$this->messages[$name][] = $arguments[0];
-			session([$this->session_key => [
-				$this->messages
-			]]);
+			session([$this->session_key => $this->messages]);
 			Log::debug("Storing flash message '" . $arguments[0] . "'.");
 		} else {
 			Log::error("Storing flash message failed, invalid level '$name'.");
