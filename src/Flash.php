@@ -27,7 +27,10 @@ class Flash
 	 */
 	public function __construct()
 	{
-		$this->valid_levels = config('flash.valid_levels');
+		if($levels = config('flash.valid_levels'))
+		{
+			$this->valid_levels = $levels;
+		}
 	}
 
 	/**
