@@ -1,0 +1,17 @@
+{
+    "name": "crazyinventor/laflash",
+    "description": "Laravel flash message package\"",
+    "authors": [
+        {
+            "name": "David Schneider",
+            "email": "d4vid81@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CrazyInventor\\LaFlash\\": "src/"
+        }
+    }
+}
