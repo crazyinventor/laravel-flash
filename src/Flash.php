@@ -32,10 +32,13 @@ class Flash
 	 */
 	public function __construct()
 	{
+		// prepare flash levels
 		if($levels = config('flash.valid_levels'))
 		{
 			$this->valid_levels = $levels;
 		}
+		// load existing messages
+		$this->messages = $this->getMessages();
 	}
 
 	/**
@@ -52,7 +55,7 @@ class Flash
 			session([$this->session_key => $this->messages]);
 			Log::debug("Storing flash message '" . $arguments[0] . "'.");
 		} else {
-			Log::error("Storing flash message failed, invalid level '$name'.");
+			throw new \InvalidArgumentException("Storing flash message failed, invalid level '$name'.");
 		}
 	}
 
@@ -96,5 +99,16 @@ class Flash
 	public function getLevels()
 	{
 		return $this->valid_levels;
+	}
+
+	/**
+	 * Delete session values and return stored messages
+	 *
+	 * @return array|mixed
+	 */
+	public function flush()
+	{
+		session()->forget($this->session_key);
+		return $this->messages;
 	}
 }
