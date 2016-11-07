@@ -31,7 +31,7 @@ In `/config/app.php`, add the following to `providers`:
 ```
 and the following to `aliases`:
 ```
-'Recaptcha' => 'CrazyInventor\LaFlash\FlashFacade',
+'Flash' => 'CrazyInventor\LaFlash\FlashFacade',
 ```
 
 #### Laravel 5.1 and newer
@@ -42,7 +42,7 @@ CrazyInventor\LaFlash\FlashServiceProvider::class,
 ```
 and the following to `aliases`:
 ```
-'Recaptcha' => CrazyInventor\LaFlash\FlashFacade::class,
+'Flash' => CrazyInventor\LaFlash\FlashFacade::class,
 ```
 
 ## Usage
