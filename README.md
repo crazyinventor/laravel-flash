@@ -15,14 +15,6 @@ Run 'composer require crazyinventor/laflash' or modify your composer.json:
 
 ## Configuration
 
-Publish the `flash` configuration file by running the following command from a shell inside your Laravel's installation directory:
-
-```
-php artisan vendor:publish
-```
-
-This will create the file `config/flash.php` in your Laravel's installation directory. You can customize the levels you would like to use.
-
 #### Laravel 5.0
 
 In `/config/app.php`, add the following to `providers`:
@@ -44,6 +36,16 @@ and the following to `aliases`:
 ```
 'Flash' => CrazyInventor\LaFlash\FlashFacade::class,
 ```
+
+#### Configuration file
+
+Publish the `flash` configuration file by running the following command from a shell inside your Laravel's installation directory:
+
+```
+php artisan vendor:publish
+```
+
+This will create the file `config/flash.php` in your Laravel's installation directory. You can customize the levels you would like to use.
 
 ## Usage
 
