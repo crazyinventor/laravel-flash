@@ -1,6 +1,6 @@
 # Laravel Flash
 
-Flash message package for Laravel
+Flash message package for Laravel with customizable message groups (levels).
 
 ## Installation
 
